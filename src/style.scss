@@ -54,30 +54,39 @@ body {
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
 
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      top: -1px;
-      height: 16px;
-      aspect-ratio: 1;
-      background-color: $frame;
-      mask-image: linear-gradient(to top, #000, #000),
-        radial-gradient(circle 8px at center, #000 80%, transparent 80%);
-      mask-size: 8px 8px, 100%;
-      mask-repeat: no-repeat, repeat;
-      mask-composite: subtract;
-    }
+    // doesn't work in safari 🥲
 
-    &::before {
-      right: 99%;
-      mask-position: top right, center;
-    }
+    // &::before,
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: -1px;
+    //   height: 16px;
+    //   aspect-ratio: 1;
+    //   background-color: $frame;
+    //   mask-image: linear-gradient(to top, #000, #000),
+    //     radial-gradient(circle 8px at center, #000 80%, transparent 80%);
+    //   -webkit-mask-image: linear-gradient(to top, #000, #000),
+    //     radial-gradient(circle 8px at center, #000 80%, transparent 80%);
+    //   mask-size: 8px 8px, 100%;
+    //   -webkit-mask-size: 8px 8px, 100%;
+    //   mask-repeat: no-repeat, repeat;
+    //   -webkit-mask-repeat: no-repeat, repeat;
+    //   mask-composite: subtract;
+    //   -webkit-mask-composite: subtract;
+    // }
 
-    &::after {
-      left: 99%;
-      mask-position: top left, center;
-    }
+    // &::before {
+    //   right: 99%;
+    //   mask-position: top right, center;
+    //   -webkit-mask-position: top right, center;
+    // }
+
+    // &::after {
+    //   left: 99%;
+    //   mask-position: top left, center;
+    //   -webkit-mask-position: top left, center;
+    // }
   }
 
   &__header {

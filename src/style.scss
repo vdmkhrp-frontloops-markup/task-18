@@ -29,10 +29,12 @@ body {
 }
 
 .mobile {
+  $frame: #000;
+
   position: relative;
   max-width: 394px;
   width: 100%;
-  border: 12px solid #000;
+  border: 12px solid $frame;
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 0 18px 0 rgba(#000, 0.4);
@@ -41,17 +43,41 @@ body {
     box-shadow: none;
   }
 
-  &::before {
-    content: "";
+  &__brow {
     position: absolute;
     top: -1px;
     left: 50%;
-    height: 13px;
+    height: 17px;
     width: 220px;
-    background-color: #000;
-    translate: -50% 0;
+    background-color: $frame;
+    translate: -50%;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      height: 16px;
+      aspect-ratio: 1;
+      background-color: $frame;
+      mask-image: linear-gradient(to top, #000, #000),
+        radial-gradient(circle 8px at center, #000 80%, transparent 80%);
+      mask-size: 8px 8px, 100%;
+      mask-repeat: no-repeat, repeat;
+      mask-composite: subtract;
+    }
+
+    &::before {
+      right: 99%;
+      mask-position: top right, center;
+    }
+
+    &::after {
+      left: 99%;
+      mask-position: top left, center;
+    }
   }
 
   &__header {
